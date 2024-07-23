@@ -18,4 +18,8 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 	Page<Post> findPostBySeachTerm(@Param("searchTerm")String searchTerm, Pageable p);
 	
 	long countByIsArchieved(boolean archieved);
+
+	long countByLikesPostId(int postId);
+
+	long countByUnlikePostId(int postId);
 }
