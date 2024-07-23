@@ -20,6 +20,11 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 	long countByIsArchieved(boolean archieved);
 
 	long countByLikesPostId(int postId);
+	// or
+	/**
+	*	@Query("SELECT COUNT(l) FROM Like l where l.post.id = :postId ")
+	*	long countLikesForPost(@Param("postId") int postId)
+ 	*/
 
 	long countByUnlikePostId(int postId);
 }
