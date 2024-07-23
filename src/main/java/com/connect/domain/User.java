@@ -1,4 +1,4 @@
-package com.connect.domain;
+ndspackage com.connect.domain;
 
 import java.time.LocalDateTime;
 
@@ -21,7 +21,7 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="tbl_users")
-public class User {
+public class User extends Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(updatable=false,nullable=false)
@@ -73,8 +73,8 @@ public class User {
 	@Column(nullable=true)
 	private int activation_code;
 	
-//	@OneToMany(fetch=FetchType.LAZY)
-//	private Page<>
+	@OneToMany(fetch=FetchType.LAZY)
+	private List<Post> posts = new ArrayList<>();
 	
 	@Column(nullable=true)
 	private int password_reset_code;
