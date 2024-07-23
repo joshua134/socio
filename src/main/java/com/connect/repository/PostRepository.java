@@ -27,4 +27,9 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
  	*/
 
 	long countByUnlikePostId(int postId);
+	// or
+	/**
+	*	@Query("SELECT COUNT(l) FROM Unlike ul where ul.post.id = :postId ")
+	*	long countUnLikesForPost(@Param("postId") int postId)
+ 	*/
 }
