@@ -15,4 +15,18 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	
 	Page<User> findAll(Pageable p);
 	Page<User> findByGender(Gender gender, Pageable p);
+
+	Page<Post> findAllPostsByUser(User u, Pageable p);
+	// or
+	/**
+ 	*	@Query("SELECT p FROM Post p WHERE p.creator.id = userId")
+  	*	Page<Post> findAllPostByUser(@Param("userId") int userId);
+   	*/
+	
+	long countPostByUserId(User u);
+	// or 
+	/**
+	*	@Query("SELECT COUNT(p) FROM Post p WHERE p.creator.id = userId")
+	*	long countAllPostsByUser(@Param("userId") int userId);
+	*/
 }
