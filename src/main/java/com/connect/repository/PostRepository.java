@@ -19,6 +19,8 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 	
 	long countByIsArchieved(boolean archieved);
 
+	Page<Comment> findCommentsByPostId(int postId, Pageable p);
+
 	long countByCommentsPostId(int postId);
 	// or
 	/**
