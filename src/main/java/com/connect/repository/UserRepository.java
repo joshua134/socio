@@ -16,6 +16,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	Page<User> findAll(Pageable p);
 	Page<User> findByGender(Gender gender, Pageable p);
 
+	Page<User> findAllByGender(Gender g, Pageable p);
+	Page<User> findAllByRole(Role r, Pageable p);
+
 	Page<Post> findAllPostsByUser(User u, Pageable p);
 	// or
 	/**
