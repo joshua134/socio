@@ -19,6 +19,13 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 	
 	long countByIsArchieved(boolean archieved);
 
+	long countByCommentsPostId(int postId);
+	// or
+	/**
+ 	*	@Query("SELECT COUNT(c) FROM Comment c WHERE c.post.id = :postId")
+  	*	long countCommentsForPost(@Param("postId") int postId)
+   	*/
+
 	long countByLikesPostId(int postId);
 	// or
 	/**
