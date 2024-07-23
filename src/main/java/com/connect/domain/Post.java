@@ -52,7 +52,13 @@ public class Post {
 	private LocalDateTime createdAt = LocalDateTime.now();
 	
 	@OneToMany(fetch=FetchType.LAZY)
-	private List<Comment> commentsList = new ArrayList<>();
+	private List<Comment> comments = new ArrayList<>();
+
+	@OneToMany(fetch=FetchType.LAZY)
+	private List<Like> likes = new ArrayList<>();
+
+	@OneToMany(fetch=FetchType.LAZY)
+	private List<UnLike> unlikes = new ArrayList<>();
 
 	
 	public Post () {  }
