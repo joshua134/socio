@@ -36,6 +36,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
  	*	Query("SELECT u FROM User u WHERE u.role = :role")
   	*	Page<User> findAllByRole(Role r, Pageable p);
    	*/
+
+	@Query("SELECT u FROM User u WHERE u.posts.size > :postNumber")
+	Page<User> findAllUsersWithPostsGreaterThanOrLessThan(@Param("postNumber") int postNumber, Pageable p);
 	
 	Page<Post> findAllPostsByUser(User u, Pageable p);
 	// or
