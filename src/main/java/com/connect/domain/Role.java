@@ -22,6 +22,9 @@ public class Role {
 	@Size(min=3,max=30,message="Role must have atleast 3-30 characters.")
 	@NotNull(message="Role is required.")
 	private String role;
+
+	@OneToMany(fetch=FetchType.LAZY, orphaned=true)
+	private List<User> users = new ArrayList<>();
 	
 	public Role() {
 	}
